@@ -1,0 +1,15 @@
+
+// Create these measures in Power Pivot (Data Model)
+TotalActivities = DISTINCTCOUNT(Master_Activities[ActivityID])
+TotalRoles = DISTINCTCOUNT(Master_RACI_Assignments[RoleCanonical])
+TotalFTE = SUM(Master_Staffing[FTE])
+Count_A = CALCULATE(COUNTROWS(Master_RACI_Assignments), Master_RACI_Assignments[RACI] = "A")
+Count_R = CALCULATE(COUNTROWS(Master_RACI_Assignments), Master_RACI_Assignments[RACI] = "R")
+Count_C = CALCULATE(COUNTROWS(Master_RACI_Assignments), Master_RACI_Assignments[RACI] = "C")
+Count_I = CALCULATE(COUNTROWS(Master_RACI_Assignments), Master_RACI_Assignments[RACI] = "I")
+
+// Role-level measures
+RoleA_Count = CALCULATE(COUNTROWS(Master_RACI_Assignments), Master_RACI_Assignments[RACI] = "A")
+RoleR_Count = CALCULATE(COUNTROWS(Master_RACI_Assignments), Master_RACI_Assignments[RACI] = "R")
+RoleC_Count = CALCULATE(COUNTROWS(Master_RACI_Assignments), Master_RACI_Assignments[RACI] = "C")
+RoleI_Count = CALCULATE(COUNTROWS(Master_RACI_Assignments), Master_RACI_Assignments[RACI] = "I")
